@@ -2,10 +2,10 @@ using Calculator_REST.Repository;
 using Calculator_REST.Services;
 using Calculator_REST.Models;
 
-var functions = Functions.FunctionsDictionary;
-Console.ForegroundColor = ConsoleColor.DarkRed;
-Console.WriteLine(functions["tan"](0.5));
-Console.ResetColor();
+// var functions = Functions.FunctionsDictionary;
+// Console.ForegroundColor = ConsoleColor.DarkRed;
+// Console.WriteLine(functions["tan"](0.5));
+// Console.ResetColor();
 
 var builder = WebApplication.CreateBuilder(args);
 
