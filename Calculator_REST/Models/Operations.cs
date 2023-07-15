@@ -1,12 +1,10 @@
 ﻿// ReSharper disable HeapView.ObjectAllocation.Evident
 
-using System.Net.Sockets;
-
 namespace Calculator_REST.Models;
 
-public abstract class Operators
+public abstract class Operations
 {
-    public static readonly Dictionary<char, Func<double, double, double>> OperatorsDictionary = new()
+    public static readonly Dictionary<char, Func<double, double, double>> OperationsDictionary = new()
     {
         { '+', (x, y) => x + y },
         { '-', (x, y) => x - y },
@@ -19,9 +17,9 @@ public abstract class Operators
         // { ')', "close_bracket" },
     };
 
-    public static readonly Dictionary<int, List<char>> OperationsPriority = new()
-    {
-        { 0, new List<char> { '*', '/' } },
-        { 1, new List<char> { '+', '-', '%', '^' } },
-    };
+    // public static readonly Dictionary<int, List<char>> OperationsPrioritiesDictionary = new()
+    // {
+    //     { 0, new List<char> { '+', '-', '%', '^' } },
+    //     { 1, new List<char> { '*', '/' } },
+    // };
 }

@@ -1,18 +1,29 @@
-﻿namespace Calculator_REST.Models;
+﻿#pragma warning disable CS8618
+
+namespace Calculator_REST.Models;
 
 public class Expression
 {
-    public string? ExpressionString { get; set; }
-
+    public string InitialStringValue { get; set; }
+    public string StringValue { get; set; }
+    public List<Operation> Operations { get; set; }
+    public List<string> ExpressionHistory { get; set; }
+    public string Result { get; set; }
+    
     public Expression()
     {
-        // Console.ForegroundColor = ConsoleColor.DarkRed;
-        // Console.WriteLine("Expression object created!");
-        // Console.ResetColor();
+        Operations = new List<Operation>();
+        ExpressionHistory = new List<string>();
+        Result = "";
+        StringValue = "";
     }
-    public Expression(string? expression)
+
+    public Expression(string initialStringValue, string stringValue, List<Operation> operations, List<string> expressionHistory, string result)
     {
-        this.ExpressionString = expression;
+        InitialStringValue = initialStringValue;
+        StringValue = stringValue;
+        Operations = operations;
+        ExpressionHistory = expressionHistory;
+        Result = result;
     }
-    
 }

@@ -1,0 +1,7 @@
+﻿### Send POST request with json body
+POST http://localhost:5045/controller/calculate
+Content-Type: application/json
+
+{
+  "InitialStringValue": "(3.5-2)*4-3"
+}

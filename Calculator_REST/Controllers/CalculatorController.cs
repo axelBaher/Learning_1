@@ -1,7 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿// ReSharper disable SuggestVarOrType_SimpleTypes
+// ReSharper disable JoinDeclarationAndInitializer
+
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
 using Calculator_REST.Services;
 using Calculator_REST.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Calculator_REST.Controllers;
 
@@ -19,14 +22,14 @@ public class CalculatorController : ControllerBase
 
     [HttpPost("calculate")]
     [SuppressMessage("ReSharper", "HeapView.ObjectAllocation")]
-    public IActionResult GetExpression([FromBody] Expression expression)
+    public ActionResult<Expression> CalculateExpression([FromBody] Expression expression)
     {
         Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.WriteLine($"Expression: {expression.ExpressionString}");
+        Console.WriteLine($"Expression: {expression.InitialStringValue}");
         Console.ResetColor();
-        CalculatorService.CheckEmptyExpression(expression);
-        CalculatorService.CalculateExpression(expression);
-        return Ok();
+        _calculatorService.Test(expression);
+        // expression = _calculatorService.CalculateExpression(expression);
+        return Ok(expression);
     }
 }
 

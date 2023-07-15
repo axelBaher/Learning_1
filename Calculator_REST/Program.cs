@@ -2,11 +2,6 @@ using Calculator_REST.Repository;
 using Calculator_REST.Services;
 using Calculator_REST.Models;
 
-// var functions = Functions.FunctionsDictionary;
-// Console.ForegroundColor = ConsoleColor.DarkRed;
-// Console.WriteLine(functions["tan"](0.5));
-// Console.ResetColor();
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,6 +15,7 @@ builder.Services.AddDbContext<CalculatorDbContext>();
 
 // Add dependencies into dependency container
 builder.Services.AddScoped<CalculatorService>();
+// builder.Services.AddScoped<Expression>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
